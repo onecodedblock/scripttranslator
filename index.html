@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Translator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-10">
+  <div class="max-w-2xl mx-auto bg-white rounded shadow p-5">
+    <h1 class="text-2xl font-bold mb-5 text-center">Multi-Language Script Translator</h1>
+    <div class="mb-4">
+      <label class="block mb-2 font-semibold">Input Language</label>
+      <select id="inputLang" class="w-full p-2 border rounded">
+        <option value="rust">Rust</option>
+        <option value="lua">Lua</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+        <option value="javascript">JavaScript</option>
+        <option value="css">CSS</option>
+      </select>
+    </div>
+    <div class="mb-4">
+      <label class="block mb-2 font-semibold">Code</label>
+      <textarea id="inputCode" class="w-full p-2 border rounded" rows="6" placeholder="Enter your code here..."></textarea>
+    </div>
+    <div class="mb-4">
+      <label class="block mb-2 font-semibold">Output Language</label>
+      <select id="outputLang" class="w-full p-2 border rounded">
+        <option value="rust">Rust</option>
+        <option value="lua">Lua</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+        <option value="javascript">JavaScript</option>
+        <option value="css">CSS</option>
+      </select>
+    </div>
+    <button onclick="translateCode()" class="w-full p-2 bg-blue-600 text-white font-semibold rounded">Translate</button>
+    <div class="mt-5">
+      <label class="block mb-2 font-semibold">Translated Code</label>
+      <textarea id="outputCode" class="w-full p-2 border rounded" rows="6" placeholder="Translation will appear here..." readonly></textarea>
+    </div>
+  </div>
+
+  <script src="translator.js"></script>
+</body>
+</html>
