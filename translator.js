@@ -5,26 +5,29 @@ function translateCode() {
 
   let translatedCode = "";
 
-  // Basic translation for "print" statements as an example
-  if (inputLang === "python" && outputLang === "javascript") {
-    translatedCode = translatePythonToJavaScript(inputCode);
-  } else if (inputLang === "javascript" && outputLang === "python") {
+  if (inputLang === "javascript" && outputLang === "python") {
     translatedCode = translateJavaScriptToPython(inputCode);
+  } else if (inputLang === "python" && outputLang === "javascript") {
+    translatedCode = translatePythonToJavaScript(inputCode);
+  } else if (inputLang === "rust" && outputLang === "lua") {
+    translatedCode = translateRustToLua(inputCode);
   } else {
-    translatedCode = "Translation not yet supported for these languages.";
+    translatedCode = "Translation not supported for this language pair.";
   }
 
   document.getElementById("outputCode").value = translatedCode;
 }
 
+// Add function-based translations here
+function translateJavaScriptToPython(code) {
+  return code.replace(/console\.log\((.*)\);/g, "print($1)").replace(/let/g, "");
+}
+
 function translatePythonToJavaScript(code) {
-  // Replace Python's `print()` with JavaScript's `console.log()`
   return code.replace(/print\((.*)\)/g, "console.log($1);");
 }
 
-function translateJavaScriptToPython(code) {
-  // Replace JavaScript's `console.log()` with Python's `print()`
-  return code.replace(/console\.log\((.*)\);/g, "print($1)");
+function translateRustToLua(code) {
+  // Basic translation for printing in Rust to Lua
+  return code.replace(/println!\("(.*)"\);/g, 'print("$1")');
 }
-
-// Additional translation functions go here, like Rust to Lua, Java to JavaScript, etc.
